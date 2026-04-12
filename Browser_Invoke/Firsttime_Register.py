@@ -25,5 +25,17 @@ LINK TEXT OR PARTIAL LINK_TEXT locater is used to locate the link on the webpage
 Once locate into web page it will start with anchor tag <a> and it will have the text of the link in between the opening and closing anchor tag.
 """
 driver.find_element(By.LINK_TEXT, "Register").click() #click on register link_text locater.
+#Filling the registration form
+driver.find_element(By.ID, "firstName").send_keys("Sankar") #First name
+driver.find_element(By.ID, "lastName").send_keys("Rudrapal") #Last name
+driver.find_element(By.ID, "userEmail").send_keys("s") #Email
+driver.find_element(By.ID, "userMobile").send_keys("1234567890") #Mobile number
+driver.find_element(By.ID, "userPassword").send_keys("Welcome@1234") #Password
+driver.find_element(By.ID, "confirmPassword").send_keys("Welcome@1234") #Confirm password
+driver.find_element(By.XPATH, "//input[@type='checkbox']").click() #Check me out if you agree to the terms and conditions checkbox
+#driver.find_element(By.ID, "login").click() #Submit button
 
 
+
+
+time.sleep(2)

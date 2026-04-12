@@ -31,6 +31,10 @@ driver.find_element(By.XPATH, "//form/div[1]/input").send_keys("demo@gmail.com")
 driver.find_element(By.CSS_SELECTOR, "form div:nth-child(2) input").send_keys("Welcome@1234") #Password box
 driver.find_element(By.CSS_SELECTOR, "#confirmPassword").send_keys("Welcome@1234") #Confirm password box
 
+#if there is nothing present in web page only test is present using text only we can create XPATH that facility not present in CSS_Selector.
+#//tagname[text()='text of the element'] e.g below
+#//button[text()='Save New Password'] --> Xpath syntax for button with text "Save New Password"
+
 
 
 
