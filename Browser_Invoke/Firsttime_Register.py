@@ -19,21 +19,11 @@ Title = driver.title
 print(Title)
 assert "Shop" in Title
 
-driver.find_element(By.LINK_TEXT, "Forgot password?").click() #click on forgot password link_text locater.
 
-'''
-There will be an another approach writting  Xpath and css selector patrent to child traversing.
-Xpath syntax: //parenttag/childtag e.g //form/div[1]/input
-CSS_Selector syntax: parenttag childtag e.g form div:nth-child(2) input
-'''
-#parent to child traversing in Xpath and css selector.
-driver.find_element(By.XPATH, "//form/div[1]/input").send_keys("demo@gmail.com") #Email box
-driver.find_element(By.CSS_SELECTOR, "form div:nth-child(2) input").send_keys("Welcome@1234") #Password box
-driver.find_element(By.CSS_SELECTOR, "#confirmPassword").send_keys("Welcome@1234") #Confirm password box
+"""
+LINK TEXT OR PARTIAL LINK_TEXT locater is used to locate the link on the webpage, it will locate the link by its text.
+Once locate into web page it will start with anchor tag <a> and it will have the text of the link in between the opening and closing anchor tag.
+"""
+driver.find_element(By.LINK_TEXT, "Register").click() #click on register link_text locater.
 
 
-
-
-time.sleep(3)
-
-driver.quit()

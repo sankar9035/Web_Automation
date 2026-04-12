@@ -16,6 +16,7 @@ driver = webdriver.Edge(service=service_obj)
 driver.get("https://rahulshettyacademy.com/angularpractice/")
 Title = driver.title
 print(Title)
+assert "ProtoCommerce" in Title
 
 driver.find_element(By.NAME, "email").send_keys('sankarrudrapalsocialmedia@gmail.com')#email box
 driver.find_element(By.ID, "exampleInputPassword1").send_keys('Welcome@1234') #password box
