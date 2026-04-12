@@ -39,3 +39,4 @@ driver.find_element(By.XPATH, "//input[@type='checkbox']").click() #Check me out
 
 
 time.sleep(2)
+
