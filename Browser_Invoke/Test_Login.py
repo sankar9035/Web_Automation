@@ -29,11 +29,11 @@ driver.find_element(By.XPATH, "//input[@type='submit']").click() #submit button
 
 #another way of Xpath and CSS_Selector is by using the index number.
 # below code will find the 3rd input box of type text and send the value to it and it will add the value of first box.
-driver.find_element(By.XPATH, "(//input[@type='text'])[3]").send_keys('welcome to selenium_automation ')
+
 
 driver.find_element(By.CSS_SELECTOR, "input[name='name']").send_keys('sankar rudrapal') #name box
-#we are clearing the value of the 3rd input box of type text and it will clear the value of first box value as well.
-driver.find_element(By.XPATH, "(//input[@type='text'])[3]").clear()
+
+
 driver.find_element(By.XPATH, "//input[@id='inlineRadio1']").click()
 message = driver.find_element(By.CLASS_NAME, "alert-success").text #to get the text of the alert message after clicking on submit button.
 print(message)
@@ -43,4 +43,9 @@ print(message)
 
 assert "Success" in message #if the message contains the word "Success" then the test case will be passed otherwise it will be failed.
 
+
+driver.find_element(By.XPATH, "(//input[@type='text'])[3]").send_keys('welcome to selenium_automation ')
+
+#we are clearing the value of the 3rd input box of type text and it will clear the value of first box value as well.
+driver.find_element(By.XPATH, "(//input[@type='text'])[3]").clear()
 time.sleep(3)
