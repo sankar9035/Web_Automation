@@ -25,9 +25,15 @@ for checkbox in Checkboxes:
 #Here also we can create a CSS_Selector using class nake e.g .radioButton .
 Radio_buttons = driver.find_elements(By.XPATH, "//input[@type='radio']")
 
+
 for radio in Radio_buttons:
     if radio.get_attribute("value") == "radio3":
         radio.click()
         assert radio.is_selected() == True
         break
 
+
+#Now we gonna performing is_display() method to check element is visible or not for user.
+assert driver.find_element(By.ID, "displayed-text").is_displayed()
+driver.find_element(By.ID, "hide-textbox").click()
+assert not driver.find_element(By.ID, "displayed-text").is_displayed()
