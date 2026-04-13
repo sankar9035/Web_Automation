@@ -64,7 +64,7 @@ print(len(countries)) #to get the count of the option in the dropdown.
 # # Now list_country contains all country names
 # print(f"All countries: {list_country}")
 #
-# print(driver.find_element(By.CSS_SELECTOR, "#autosuggest").get_attribute("value")) #to get the value of the selected option 'india' from the dropdown.
+# print(driver.find_element(By.CSS_SELECTOR, "#autosuggest").get_attribute("value")) #to get the value of the selected option 'india'.
 
 for country in countries:
     if country.text == "India":  # Case-insensitive comparison
@@ -76,4 +76,4 @@ when update value dynamically through the script how do we extract the text so, 
 '''
 target_value = (driver.find_element(By.CSS_SELECTOR, "#autosuggest").get_attribute("value"))
 print(target_value)
-assert target_value == "asdIndia"
+assert target_value == "India"
