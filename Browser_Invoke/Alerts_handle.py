@@ -23,10 +23,12 @@ handling java or javascript pop-up alert we can not html it. so, driver does not
 in this case we have to switch from driver control to alert mode and then we can handle the alert pop-up.
 syntax: driver.switch_to.alert. to grab text from alert alert.text it will grab the txt.
 '''
-alert = driver.switch_to.alert
-alert_text = alert.text
+Alert = driver.switch_to.alert
+alert_text = Alert.text
 print(alert_text)
 assert "Sankar" in alert_text
+Alert.accept() # this is for click on ok button in alert pop-up.
+#Alert.dismiss() # this is for click on cancel button in alert pop-up. this used basically when 2 option are there.
 
 
 time.sleep(2)
