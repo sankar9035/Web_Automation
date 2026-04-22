@@ -3,7 +3,9 @@ import time
 from selenium import webdriver #this is for drivers class.
 from selenium.webdriver.chrome.service import Service #this is for chrome/edge service class.
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.ie.webdriver import WebDriver
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 # service_obj = Service(executable_path=r'C:\Users\sanka\Downloads\edgedriver_win64\msedgedriver.exe')
 # driver = webdriver.Edge(service=service_obj)
@@ -21,11 +23,6 @@ assert "GreenKart" in Title
 driver.find_element(By.CSS_SELECTOR, ".search-keyword").send_keys("ber")
 time.sleep(3)
 results = driver.find_elements(By.XPATH, "//div[@class='products']/div")
-'''
-in the above line of code we are trying to retrieve a list of elements but there was an exception 
-to apply wait mechanism global-timeout wait implecit wait used this is the exception its not applicable for find_elements method
-so separately time.sleep() method used to wait for 3 seconds to load the elements and then we can retrieve the list of elements.
-'''
 count = len(results)
 print(count)
 
@@ -43,3 +40,15 @@ driver.find_element(By.CSS_SELECTOR, "img[alt='Cart']").click()
 driver.find_element(By.XPATH, "//button[text()='PROCEED TO CHECKOUT']").click()
 driver.find_element(By.CSS_SELECTOR, ".promoCode").send_keys("sankarselenium")
 driver.find_element(By.CSS_SELECTOR, ".promoBtn").click()
+
+'''
+here below line of code going to apply explicit wait since while entering a promo code its take a few min of time,
+that might be not initially applicable for all the elements only for a specific element we can apply explicit wait.
+
+'''
+
+wait = WebDriverWait(driver, 10)
+wait.until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".promoInfo")))
+promo = driver.find_element(By.CSS_SELECTOR, ".promoInfo").text
+print(promo)
+assert "Invalid" in driver.find_element(By.CSS_SELECTOR, ".promoInfo").text
