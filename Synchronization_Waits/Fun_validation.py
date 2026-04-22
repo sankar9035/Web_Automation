@@ -78,6 +78,8 @@ promo = driver.find_element(By.CSS_SELECTOR, ".promoInfo").text
 print(promo)
 assert "Invalid" in driver.find_element(By.CSS_SELECTOR, ".promoInfo").text
 
+discount_price = int(driver.find_element(By.CSS_SELECTOR, ".discountAmt").text)
+assert discount_price == total
 
 
 
